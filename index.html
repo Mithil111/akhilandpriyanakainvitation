@@ -253,8 +253,9 @@
             display: block;
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2rem, 6vw, 3.5rem);
+            line-height: 1;
             color: var(--gold-light);
-            margin: 0.1rem 0;
+            margin: 0.2rem 0 -0.6rem 0;
             opacity: 0.85;
         }
 
@@ -473,7 +474,7 @@
             overflow: hidden;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
+
         .event-card:hover {
             transform: translateY(-5px) scale(1.02);
         }
@@ -545,7 +546,7 @@
             text-decoration: none;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
+
         .map-box:hover {
             transform: translateY(-5px) scale(1.02);
         }
@@ -997,9 +998,16 @@
 
         /* CUSTOM CURSOR */
         @media (pointer: fine) {
-            body, a, button, .nav-dot, .map-box, .gallery-slide {
+
+            body,
+            a,
+            button,
+            .nav-dot,
+            .map-box,
+            .gallery-slide {
                 cursor: none !important;
             }
+
             #custom-cursor-dot {
                 width: 6px;
                 height: 6px;
@@ -1011,6 +1019,7 @@
                 transform: translate(-50%, -50%);
                 transition: opacity 0.2s;
             }
+
             #custom-cursor-ring {
                 width: 34px;
                 height: 34px;
@@ -1022,6 +1031,7 @@
                 transform: translate(-50%, -50%);
                 transition: width 0.3s, height 0.3s, background 0.3s, opacity 0.2s;
             }
+
             #custom-cursor-ring.hovering {
                 width: 55px;
                 height: 55px;
@@ -1034,31 +1044,52 @@
 
 <body>
     <!-- SVG PRELOADER -->
-    <div id="preloader" style="position:fixed; inset:0; background:var(--deep-navy); z-index:999999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition: opacity 0.8s ease;">
-        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" id="preloader-svg">
+    <div id="preloader"
+        style="position:fixed; inset:0; background:var(--deep-navy); z-index:999999; display:flex; align-items:center; justify-content:center; flex-direction:column; transition: opacity 0.8s ease;">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="var(--gold)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" id="preloader-svg">
             <!-- Center petal -->
-            <path d="M50 90 C 50 90 30 60 50 20 C 70 60 50 90 50 90" stroke-dasharray="150" stroke-dashoffset="150" class="draw-path" />
+            <path d="M50 90 C 50 90 30 60 50 20 C 70 60 50 90 50 90" stroke-dasharray="150" stroke-dashoffset="150"
+                class="draw-path" />
             <!-- Left petals -->
-            <path d="M50 90 C 50 90 20 70 20 40 C 35 40 45 60 50 90" stroke-dasharray="150" stroke-dashoffset="150" class="draw-path" style="animation-delay: 0.3s;" />
-            <path d="M50 90 C 50 90 10 80 5 60 C 20 60 35 75 50 90" stroke-dasharray="150" stroke-dashoffset="150" class="draw-path" style="animation-delay: 0.6s;" />
+            <path d="M50 90 C 50 90 20 70 20 40 C 35 40 45 60 50 90" stroke-dasharray="150" stroke-dashoffset="150"
+                class="draw-path" style="animation-delay: 0.3s;" />
+            <path d="M50 90 C 50 90 10 80 5 60 C 20 60 35 75 50 90" stroke-dasharray="150" stroke-dashoffset="150"
+                class="draw-path" style="animation-delay: 0.6s;" />
             <!-- Right petals -->
-            <path d="M50 90 C 50 90 80 70 80 40 C 65 40 55 60 50 90" stroke-dasharray="150" stroke-dashoffset="150" class="draw-path" style="animation-delay: 0.3s;" />
-            <path d="M50 90 C 50 90 90 80 95 60 C 80 60 65 75 50 90" stroke-dasharray="150" stroke-dashoffset="150" class="draw-path" style="animation-delay: 0.6s;" />
+            <path d="M50 90 C 50 90 80 70 80 40 C 65 40 55 60 50 90" stroke-dasharray="150" stroke-dashoffset="150"
+                class="draw-path" style="animation-delay: 0.3s;" />
+            <path d="M50 90 C 50 90 90 80 95 60 C 80 60 65 75 50 90" stroke-dasharray="150" stroke-dashoffset="150"
+                class="draw-path" style="animation-delay: 0.6s;" />
         </svg>
-        <div style="font-family:'Great Vibes', cursive; font-size:1.8rem; color:var(--gold); margin-top:1rem; opacity:0; animation: fadeIn 1s ease 1s forwards;">Akhil &amp; Priyanka</div>
+        <div
+            style="font-family:'Great Vibes', cursive; font-size:1.8rem; color:var(--gold); margin-top:1rem; opacity:0; animation: fadeIn 1s ease 1s forwards;">
+            Akhil &amp; Priyanka</div>
     </div>
-    
+
     <style>
-        .draw-path { animation: draw 2s ease-in-out forwards; }
-        @keyframes draw { to { stroke-dashoffset: 0; } }
-        @keyframes fadeIn { to { opacity: 1; } }
+        .draw-path {
+            animation: draw 2s ease-in-out forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 
     <script>
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
-                if(preloader) {
+                if (preloader) {
                     preloader.style.opacity = '0';
                     setTimeout(() => preloader.style.display = 'none', 800);
                 }
@@ -1402,38 +1433,63 @@
         <h2 class="section-title reveal" style="font-size:2.8rem; margin-bottom: 2rem;">Captured Moments</h2>
         <div class="gallery-container reveal reveal-delay-1"
             style="max-width: 600px; margin: 0 auto; position: relative; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(20, 25, 40, 0.35); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 0 20px rgba(255,255,255,0.02), 0 8px 32px rgba(0,0,0,0.4); touch-action: pan-y;">
-            <div class="gallery-slide" style="display:flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);" id="gallery-slide">
+            <div class="gallery-slide" style="display:flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);"
+                id="gallery-slide">
+                <div style="width:100%; flex-shrink:0; aspect-ratio: 3/2; position:relative; overflow:hidden;">
+                    <iframe id="yt-vid-1" class="yt-player-iframe" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/EGNfLthV7aE?enablejsapi=1" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                        style="position:absolute; top:0; left:0;"></iframe>
+                </div>
+                <div style="width:100%; flex-shrink:0; aspect-ratio: 3/2; position:relative; overflow:hidden;">
+                    <iframe id="yt-vid-2" class="yt-player-iframe" width="100%" height="100%"
+                        src="https://www.youtube.com/embed/bv3LEcGF-Xc?enablejsapi=1" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                        style="position:absolute; top:0; left:0;"></iframe>
+                </div>
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.29%20AM%20(1).jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 2">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 2">
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.29%20AM.jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 3">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 3">
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.30%20AM%20(1).jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 4">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 4">
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.30%20AM.jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 5">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 5">
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.31%20AM%20(1).jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 6">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 6">
                 <img src="WhatsApp%20Image%202026-04-22%20at%2011.08.31%20AM.jpeg"
                     onerror="this.src='https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80'"
-                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;" alt="Couple Photo 7">
+                    style="width:100%; flex-shrink:0; object-fit:cover; aspect-ratio: 3/2; user-select: none;"
+                    alt="Couple Photo 7">
             </div>
             <!-- Navigation dots -->
-            <div class="gallery-nav" id="gallery-nav" style="position:absolute; bottom:15px; left:0; width:100%; display:flex; justify-content:center; gap:8px; z-index:10;"></div>
+            <div class="gallery-nav" id="gallery-nav"
+                style="position:absolute; bottom:15px; left:0; width:100%; display:flex; justify-content:center; gap:8px; z-index:10;">
+            </div>
         </div>
         <script>
             (function () {
                 const slide = document.getElementById('gallery-slide');
                 const nav = document.getElementById('gallery-nav');
-                const total = 6;
+                const total = 8;
                 let idx = 0;
-                
+
                 // Create dots
-                for(let i=0; i<total; i++) {
+                for (let i = 0; i < total; i++) {
                     const dot = document.createElement('div');
                     dot.style.width = '8px';
                     dot.style.height = '8px';
@@ -1458,6 +1514,7 @@
                 }
 
                 let timer = setInterval(() => {
+                    if (document.activeElement && document.activeElement.tagName === 'IFRAME') return;
                     idx = (idx + 1) % total;
                     updateGallery();
                 }, 3500);
@@ -1465,6 +1522,7 @@
                 function resetTimer() {
                     clearInterval(timer);
                     timer = setInterval(() => {
+                        if (document.activeElement && document.activeElement.tagName === 'IFRAME') return;
                         idx = (idx + 1) % total;
                         updateGallery();
                     }, 3500);
@@ -1488,9 +1546,9 @@
                     const percentMove = (diff / containerWidth) * 100;
                     // Add slight resistance at edges
                     let targetX = -(idx * 100) - percentMove;
-                    if(targetX > 0) targetX = targetX * 0.3; // resistance left
-                    if(targetX < -(total-1)*100) targetX = -(total-1)*100 + (targetX + (total-1)*100) * 0.3; // resistance right
-                    
+                    if (targetX > 0) targetX = targetX * 0.3; // resistance left
+                    if (targetX < -(total - 1) * 100) targetX = -(total - 1) * 100 + (targetX + (total - 1) * 100) * 0.3; // resistance right
+
                     slide.style.transform = `translateX(${targetX}%)`;
                 }
 
@@ -1499,7 +1557,7 @@
                     isDragging = false;
                     const diff = startX - clientX;
                     slide.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-                    
+
                     if (diff > 50 && idx < total - 1) {
                         idx++;
                     } else if (diff < -50 && idx > 0) {
@@ -1513,7 +1571,7 @@
                 slide.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientX));
                 slide.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientX));
                 slide.addEventListener('touchend', (e) => handleEnd(e.changedTouches[0].clientX));
-                
+
                 // Mouse Events
                 slide.addEventListener('mousedown', (e) => { e.preventDefault(); handleStart(e.clientX); });
                 window.addEventListener('mousemove', (e) => handleMove(e.clientX));
@@ -1535,8 +1593,8 @@
             style="font-size:0.9rem;color:var(--ivory-dim);max-width:500px;margin: 0 auto 1.5rem auto;line-height:1.6;">
             For our friends and family who cannot be here in person, we would be honored to have you join us online.
         </p>
-        <a class="reveal reveal-delay-3" href="https://youtube.com/live/..." target="_blank" rel="noopener"
-            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(201,169,110,0.15); border: 1px solid #c9a96e; color: #e8cc8f; text-decoration: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 500; font-size: 1rem; transition: all 0.3s ease; margin: 0 auto;"
+        <button class="reveal reveal-delay-3" onclick="openYtModal()"
+            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(201,169,110,0.15); border: 1px solid #c9a96e; color: #e8cc8f; text-decoration: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 500; font-size: 1rem; transition: all 0.3s ease; margin: 0 auto; cursor: pointer;"
             onmouseover="this.style.background='rgba(201,169,110,0.3)'"
             onmouseout="this.style.background='rgba(201,169,110,0.15)'">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1547,8 +1605,40 @@
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
             </svg>
             Watch Live
-        </a>
+        </button>
     </section>
+
+    <!-- YOUTUBE MODAL -->
+    <div id="yt-modal"
+        style="display:none; position:fixed; inset:0; z-index:100000; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; backdrop-filter:blur(5px);">
+        <div
+            style="position:relative; width:90%; max-width:800px; aspect-ratio:16/9; background:#000; border:1px solid var(--gold); border-radius:8px; overflow:hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+            <button onclick="closeYtModal()"
+                style="position:absolute; top:10px; right:10px; z-index:2; background:rgba(0,0,0,0.5); border:1px solid var(--gold); color:var(--gold); width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1.2rem; display:flex; align-items:center; justify-content:center; transition:0.3s;"
+                onmouseover="this.style.background='rgba(201,169,110,0.3)'"
+                onmouseout="this.style.background='rgba(0,0,0,0.5)'">&times;</button>
+            <!-- Replace the YOUR_VIDEO_ID_HERE with the actual video ID later -->
+            <iframe id="yt-iframe" class="yt-player-iframe" width="100%" height="100%"
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?enablejsapi=1" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                style="position:absolute; top:0; left:0;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openYtModal() {
+            document.getElementById('yt-modal').style.display = 'flex';
+        }
+        function closeYtModal() {
+            document.getElementById('yt-modal').style.display = 'none';
+            // Stop the video when closed by resetting the src
+            const iframe = document.getElementById('yt-iframe');
+            const src = iframe.src;
+            iframe.src = src;
+        }
+    </script>
 
     <!-- SAVE THE DATE -->
     <section id="save-date">
@@ -2205,7 +2295,7 @@
                     drawCurtainPanel('left', openProgress, now);
                     drawCurtainPanel('right', openProgress, now);
                     drawCurtainRod();
-                    
+
                     if (openProgress >= 1) {
                         curtainState = 2;
                         // Fully open — hide canvas and CTA
@@ -2225,7 +2315,7 @@
                     drawCurtainPanel('left', openRem, now);
                     drawCurtainPanel('right', openRem, now);
                     drawCurtainRod();
-                    
+
                     updatePrills(dt);
                     drawPrills();
                     if (closeProgress >= 1) {
@@ -2614,6 +2704,42 @@
                 // Google Calendar
                 const gcal = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=${loc}`;
                 window.open(gcal, '_blank');
+            }
+        }
+    </script>
+
+    <!-- YOUTUBE IFRAME API FOR MUSIC & VIDEO CONTROL -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var ytPlayers = [];
+        function onYouTubeIframeAPIReady() {
+            var iframes = document.querySelectorAll('.yt-player-iframe');
+            iframes.forEach(function (iframe) {
+                var player = new YT.Player(iframe.id, {
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+                ytPlayers.push(player);
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                // Pause background music
+                var audioEl = document.querySelector('audio');
+                if (audioEl && !audioEl.paused) {
+                    if (typeof window.toggleMusic === 'function') {
+                        window.toggleMusic();
+                    }
+                }
+
+                // Pause other YouTube videos
+                ytPlayers.forEach(function (player) {
+                    if (player !== event.target && typeof player.getPlayerState === 'function' && player.getPlayerState() == YT.PlayerState.PLAYING) {
+                        player.pauseVideo();
+                    }
+                });
             }
         }
     </script>
